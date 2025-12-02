@@ -9,9 +9,6 @@ import java.nio.file.Path;
 
 public final class ImagePreprocessor {
 
-    private ImagePreprocessor() {
-    }
-
     public static BufferedImage loadAndEnhance(Path imagePath) throws IOException {
         BufferedImage original = ImageIO.read(imagePath.toFile());
         if (original == null) {
@@ -29,4 +26,3 @@ public final class ImagePreprocessor {
         return gray;
     }
 }
-

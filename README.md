@@ -1,6 +1,6 @@
 # Распознавание текста с изображения
 
-Приложение выполняет OCR для сканов книг (печатный текст) и тетрадей (рукописный текст) на русском или английском языке.  
+Приложение выполняет OCR для сканов книг и других изображений **с печатным текстом** на русском или английском языке.  
 Используется Tesseract через библиотеку Tess4J.
 
 ## Запуск
@@ -10,7 +10,7 @@
 
 ```java
 private static final Path DEFAULT_IMAGE =
-    Path.of("src", "main", "resources", "text_printed_ru.png");
+    Path.of("src", "main", "resources", "text_print_ru.png");
 ```
 
 Результат автоматически сохраняется в `output/<имя_файла>.txt`.
@@ -25,3 +25,4 @@ private static final Path DEFAULT_IMAGE =
 ----- OCR RESULT END -----
 ```
 
+	

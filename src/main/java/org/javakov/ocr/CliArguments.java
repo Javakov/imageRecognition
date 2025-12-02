@@ -1,7 +1,6 @@
 package org.javakov.ocr;
 
 import org.javakov.ocr.type.OcrLanguage;
-import org.javakov.ocr.type.OcrMode;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,7 +12,6 @@ public record CliArguments(
         Path tessdataPath,
         OcrLanguage language,
         String explicitModel,
-        OcrMode mode,
         Path outputDir
 ) {
 
@@ -31,13 +29,12 @@ public record CliArguments(
 
         OcrLanguage lang = OcrLanguage.from(values.remove("lang"));
         String model = values.remove("model");
-        OcrMode mode = OcrMode.fromFlag(values.get("mode"));
 
         if (!values.isEmpty()) {
             throw new IllegalArgumentException("Unknown flags: " + values.keySet());
         }
 
-        return new CliArguments(image, tessdata, lang, model, mode, output);
+        return new CliArguments(image, tessdata, lang, model, output);
     }
 
     private static Map<String, String> getValues(String[] args) {
@@ -67,4 +64,3 @@ public record CliArguments(
         return raw == null ? fallback : Path.of(raw);
     }
 }
-

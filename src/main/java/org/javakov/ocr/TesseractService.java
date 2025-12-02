@@ -41,4 +41,3 @@ public class TesseractService {
         return LoadLibs.extractTessResources("tessdata").toPath();
     }
 }
-
